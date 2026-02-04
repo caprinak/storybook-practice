@@ -1,3 +1,4 @@
+import React from 'react';
 import '../src/theme.css';
 
 /** @type { import('@storybook/react-vite').Preview } */
@@ -33,10 +34,19 @@ const preview = {
   decorators: [
     (Story, context) => {
       const { theme } = context.globals;
-      return (
-        <div data-theme={theme} style={{ padding: '20px', minHeight: '100vh', backgroundColor: 'var(--bg-color)', color: 'var(--text-color)' }}>
-          <Story />
-        </div>
+      // Use React.createElement instead of JSX to avoid .js vs .jsx conflicts
+      return React.createElement(
+        'div',
+        {
+          'data-theme': theme,
+          style: { 
+            padding: '20px', 
+            minHeight: '100vh', 
+            backgroundColor: 'var(--bg-color)', 
+            color: 'var(--text-color)' 
+          }
+        },
+        React.createElement(Story)
       );
     },
   ],
