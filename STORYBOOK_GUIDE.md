@@ -251,3 +251,50 @@ Reading high-quality source code from industry leaders is an excellent way to le
   - [View Repo](https://github.com/Shopify/polaris/tree/main/polaris-react/src/components)
 - **Chakra UI**: Learn how a popular theme-able component library handles its stories.
   - [View Repo](https://github.com/chakra-ui/chakra-ui/tree/main/packages/components)
+
+---
+
+## 12. Advanced Mastery: What's Next?
+
+Once you have mastered Atoms and Molecules, follow this path to reach the "Pro" level in component-driven development.
+
+### Level 12: Theming (Light vs. Dark Mode)
+
+In real apps, we switch between Light and Dark themes.
+
+- **The Exercise:** Add a global "Theme Toggle" to your Storybook.
+- **What to learn:** Use **Decorators** to wrap your stories in a `ThemeProvider` and use the `@storybook/addon-themes` to switch between CSS classes or theme objects.
+
+### Level 13: Page-Level Stories (Organisms & Templates)
+
+Storybook isn't just for small pieces; you can build entire pages.
+
+- **The Exercise:** Create a `DashboardTemplate.jsx`. It should include a `Header`, a `Sidebar`, and a grid of `UserCards`.
+- **What to learn:** Learn how to "drill down" props. Define data at the Page level and pass it down. This is the **"Workbench"** effect—build the whole screen without ever starting your backend.
+
+### Level 14: Mocking APIs (MSW)
+
+If a component (like a `UserList`) needs to fetch data from a server, you shouldn't call the real server in Storybook.
+
+- **The Exercise:** Install `msw` and the `msw-storybook-addon`.
+- **What to learn:** How to intercept network requests. Create a story called "Network Error" where the mock server returns a 500 status, ensuring your UI handles errors gracefully.
+
+### Level 15: Documentation with MDX
+
+Sometimes a table of props isn't enough. You need to write a guide that explains _why_ we use a component.
+
+- **The Exercise:** Create an `Introduction.mdx` file in your `src/stories` folder.
+- **What to learn:** Use Markdown with JSX to create a beautiful landing page for your component library. Embed living stories directly into the documentation text.
+
+---
+
+## 🏁 The Final Goal: The "Design System"
+
+The ultimate achievement is consolidating your work into a single, cohesive **Design System**:
+
+1.  **Define Tokens:** Standardize Colors, Spacing, and Typography.
+2.  **Build Atoms:** Buttons, Inputs, Badges, Tooltips.
+3.  **Compose Molecules:** Login Forms, User Cards, Navigation bars.
+4.  **Validate:** Test everything with Actions, Interactions, and Accessibility scans.
+
+**Remember: Storybook stops you from having to run your entire complex application just to fix the padding on a button.**
