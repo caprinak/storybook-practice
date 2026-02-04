@@ -7,7 +7,7 @@ import { Task } from './Task';
  */
 export const TaskList = ({ loading, tasks, onPinTask, onArchiveTask }) => {
   const containerStyle = {
-    backgroundColor: 'white',
+    backgroundColor: 'var(--card-bg)',
     minHeight: '200px',
     fontFamily: 'sans-serif',
   };
@@ -15,13 +15,13 @@ export const TaskList = ({ loading, tasks, onPinTask, onArchiveTask }) => {
   const loadingStyle = {
     padding: '40px',
     textAlign: 'center',
-    color: '#757575',
+    color: 'var(--text-muted)',
   };
 
   const emptyStyle = {
     padding: '40px',
     textAlign: 'center',
-    color: '#666',
+    color: 'var(--text-muted)',
   };
 
   if (loading) {

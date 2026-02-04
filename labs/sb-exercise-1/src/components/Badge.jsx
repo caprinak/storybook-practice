@@ -5,18 +5,20 @@ import PropTypes from 'prop-types';
  * A simple Badge component for status markers.
  */
 export const Badge = ({ label, status = 'default', size = 'medium' }) => {
-  const statusColors = {
-    success: '#1b5e20', // Dark Green
-    error: '#c62828',   // Dark Red
-    default: '#424242', // Dark Gray
-    warning: '#af3d01', // Dark Orange
+  const statusTokens = {
+    success: { bg: 'var(--status-success-bg)', text: 'var(--status-success-text)' },
+    error: { bg: 'var(--status-error-bg)', text: 'var(--status-error-text)' },
+    default: { bg: 'var(--status-default-bg)', text: 'var(--status-default-text)' },
+    warning: { bg: 'var(--status-warning-bg)', text: 'var(--status-warning-text)' },
   };
 
+  const activeToken = statusTokens[status] || statusTokens.default;
+
   const style = {
-    backgroundColor: statusColors[status] || statusColors.default,
+    backgroundColor: activeToken.bg,
+    color: activeToken.text,
     padding: size === 'large' ? '8px 16px' : '4px 8px',
     borderRadius: '12px',
-    color: 'white',
     fontWeight: 'bold',
     display: 'inline-block',
     fontFamily: 'sans-serif',

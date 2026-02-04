@@ -14,7 +14,7 @@ export const InboxScreen = ({ error, tasks, loading, onPinTask, onArchiveTask })
 
   const navStyle = {
     padding: '1.5rem',
-    backgroundColor: '#0072ad',
+    backgroundColor: 'var(--header-bg)',
     color: 'white',
     boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
     marginBottom: '2rem'

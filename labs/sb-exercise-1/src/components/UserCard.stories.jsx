@@ -9,7 +9,7 @@ export default {
   // Using a Decorator to add some padding to the preview
   decorators: [
     (Story) => (
-      <div style={{ padding: '3rem', display: 'flex', justifyContent: 'center', backgroundColor: '#f5f7f9' }}>
+      <div style={{ padding: '3rem', display: 'flex', justifyContent: 'center', backgroundColor: 'var(--bg-color)' }}>
         <Story />
       </div>
     ),
@@ -20,8 +20,7 @@ export const ActiveAdmin = {
   args: {
     name: 'John Doe',
     role: 'System Administrator',
-    status: 'Active',
-    statusColor: '#28a745',
+    status: 'success',
   },
 };
 
@@ -29,8 +28,7 @@ export const InactiveUser = {
   args: {
     name: 'Jane Smith',
     role: 'Developer',
-    status: 'Inactive',
-    statusColor: '#6c757d',
+    status: 'default',
   },
 };
 
@@ -38,7 +36,6 @@ export const PendingReview = {
   args: {
     name: 'Alex Johnson',
     role: 'Guest Contributor',
-    status: 'Pending',
-    statusColor: '#ffc107',
+    status: 'warning',
   },
 };

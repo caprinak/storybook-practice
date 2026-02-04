@@ -37,9 +37,9 @@ export const UserCard = ({
     <div style={cardStyle}>
       <div style={headerStyle}>
         <div style={{ fontWeight: 'bold', fontSize: '18px' }}>{name}</div>
-        <Badge label={status} color={statusColor} size="small" />
+        <Badge label={status} status={status} size="small" />
       </div>
-      <div style={{ color: '#586069', fontSize: '14px' }}>{role}</div>
+      <div style={{ color: 'var(--text-muted)', fontSize: '14px' }}>{role}</div>
       <div style={{ marginTop: '8px' }}>
         <ActionButton 
           label="View Profile" 
@@ -54,7 +54,11 @@ export const UserCard = ({
 UserCard.propTypes = {
   name: PropTypes.string.isRequired,
   role: PropTypes.string.isRequired,
-  status: PropTypes.string.isRequired,
-  statusColor: PropTypes.string,
+  status: PropTypes.oneOf(['default', 'success', 'error', 'warning']),
   onAction: PropTypes.func,
+};
+
+UserCard.defaultProps = {
+  status: 'default',
+  onAction: () => {},
 };

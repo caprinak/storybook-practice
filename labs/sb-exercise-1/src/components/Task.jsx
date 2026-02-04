@@ -9,8 +9,8 @@ export const Task = ({ task: { id, title, state }, onArchiveTask, onPinTask }) =
     display: 'flex',
     alignItems: 'center',
     padding: '12px 16px',
-    backgroundColor: 'white',
-    borderBottom: '1px solid #f0f0f0',
+    backgroundColor: 'var(--card-bg)',
+    borderBottom: '1px solid var(--divider-color)',
     fontFamily: 'sans-serif',
   };
 
@@ -23,13 +23,13 @@ export const Task = ({ task: { id, title, state }, onArchiveTask, onPinTask }) =
     flexGrow: 1,
     fontSize: '14px',
     lineHeight: '20px',
-    color: state === 'TASK_ARCHIVED' ? '#757575' : '#333',
+    color: state === 'TASK_ARCHIVED' ? 'var(--text-muted)' : 'var(--text-color)',
     textDecoration: state === 'TASK_ARCHIVED' ? 'line-through' : 'none',
   };
 
   const pinStyle = {
     cursor: 'pointer',
-    color: state === 'TASK_PINNED' ? '#0072ad' : '#bdbdbd',
+    color: state === 'TASK_PINNED' ? 'var(--pin-color)' : 'var(--icon-secondary)',
     fontSize: '20px',
     marginLeft: '12px'
   };
@@ -50,14 +50,20 @@ export const Task = ({ task: { id, title, state }, onArchiveTask, onPinTask }) =
           tabIndex={0}
         />
       </label>
-      <div style={titleStyle}>
+      <div style={{ flexGrow: 1 }}>
         <input 
           type="text" 
           value={title} 
           readOnly={true} 
           placeholder="Input title" 
           aria-label={title}
-          style={{ border: 'none', background: 'transparent', width: '100%', outline: 'none' }}
+          style={{ 
+            ...titleStyle,
+            border: 'none', 
+            background: 'transparent', 
+            width: '100%', 
+            outline: 'none',
+          }}
         />
       </div>
       <div 
