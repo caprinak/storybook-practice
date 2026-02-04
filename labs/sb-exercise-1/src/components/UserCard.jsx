@@ -14,13 +14,14 @@ export const UserCard = ({
   onAction 
 }) => {
   const cardStyle = {
-    border: '1px solid #e1e4e8',
+    border: '1px solid var(--card-border)',
     borderRadius: '12px',
     padding: '20px',
     width: '300px',
     fontFamily: 'sans-serif',
-    backgroundColor: 'white',
-    boxShadow: '0 4px 6px rgba(0,0,0,0.05)',
+    backgroundColor: 'var(--card-bg)',
+    color: 'var(--text-color)',
+    boxShadow: '0 4px 6px var(--card-shadow)',
     display: 'flex',
     flexDirection: 'column',
     gap: '12px'

@@ -54,3 +54,10 @@ export const Test = {
     label:"Button"
   }
 };
+
+export const Ok = {
+  args:{
+    primary:false,
+    label:"Button"
+  }
+};
