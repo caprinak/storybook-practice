@@ -1,5 +1,5 @@
 import { Task } from './Task';
-import { fn } from '@storybook/test';
+import { fn, within, userEvent, expect } from '@storybook/test';
 
 export default {
   component: Task,
@@ -36,5 +36,20 @@ export const Archived = {
       ...Default.args.task,
       state: 'TASK_ARCHIVED',
     },
+  },
+};
+
+export const PinTaskInteraction = {
+  args: {
+    ...Default.args,
+  },
+  play: async ({ canvasElement, args }) => {
+    const canvas = within(canvasElement);
+    // Find the star icon (the pin button)
+    const pinButton = canvas.getByText('★');
+    // Simulate a click
+    await userEvent.click(pinButton);
+    // Verify that the onPinTask mock was called
+    await expect(args.onPinTask).toHaveBeenCalled();
   },
 };

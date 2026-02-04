@@ -5,7 +5,7 @@ import { TaskList } from './TaskList';
 /**
  * A Page-level component that composes the TaskList and adds page-level layout/states.
  */
-export const InboxScreen = ({ error, tasks, loading }) => {
+export const InboxScreen = ({ error, tasks, loading, onPinTask, onArchiveTask }) => {
   const pageStyle = {
     minHeight: '100vh',
     backgroundColor: 'var(--bg-color)',
@@ -14,7 +14,7 @@ export const InboxScreen = ({ error, tasks, loading }) => {
 
   const navStyle = {
     padding: '1.5rem',
-    backgroundColor: '#26c6da',
+    backgroundColor: '#0072ad',
     color: 'white',
     boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
     marginBottom: '2rem'
@@ -52,7 +52,12 @@ export const InboxScreen = ({ error, tasks, loading }) => {
 
       <div style={{ maxWidth: '600px', margin: '0 auto', padding: '0 20px' }}>
         <h2 style={{ fontSize: '18px', color: '#555', marginBottom: '1rem' }}>Your Tasks</h2>
-        <TaskList tasks={tasks} loading={loading} />
+        <TaskList 
+          tasks={tasks} 
+          loading={loading} 
+          onPinTask={onPinTask} 
+          onArchiveTask={onArchiveTask} 
+        />
       </div>
     </div>
   );
@@ -65,9 +70,13 @@ InboxScreen.propTypes = {
   loading: PropTypes.bool,
   /** The list of tasks to pass to TaskList */
   tasks: TaskList.propTypes.tasks,
+  onPinTask: PropTypes.func,
+  onArchiveTask: PropTypes.func,
 };
 
 InboxScreen.defaultProps = {
   error: null,
   loading: false,
+  onPinTask: () => {},
+  onArchiveTask: () => {},
 };

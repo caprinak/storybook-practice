@@ -8,7 +8,10 @@ export default {
   },
   tags: ['autodocs'],
   argTypes: {
-    color: { control: 'color' },
+    status: {
+      control: 'select',
+      options: ['default', 'success', 'warning', 'error'],
+    },
     size: {
       control: 'select',
       options: ['small', 'medium', 'large'],
@@ -19,7 +22,7 @@ export default {
 export const Success = {
   args: {
     label: 'Success',
-    color: '#28a745',
+    status: 'success',
     size: 'medium',
   },
 };
@@ -27,7 +30,7 @@ export const Success = {
 export const Warning = {
   args: {
     label: 'Warning',
-    color: '#ffc107',
+    status: 'warning',
     size: 'medium',
   },
 };
@@ -35,7 +38,7 @@ export const Warning = {
 export const Danger = {
   args: {
     label: 'Error',
-    color: '#dc3545',
+    status: 'error',
     size: 'medium',
   },
 };
@@ -43,7 +46,7 @@ export const Danger = {
 export const Large = {
   args: {
     label: 'Large Badge',
-    color: '#007bff',
+    status: 'default',
     size: 'large',
   },
 };

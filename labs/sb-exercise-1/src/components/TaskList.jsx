@@ -15,7 +15,7 @@ export const TaskList = ({ loading, tasks, onPinTask, onArchiveTask }) => {
   const loadingStyle = {
     padding: '40px',
     textAlign: 'center',
-    color: '#aaa',
+    color: '#757575',
   };
 
   const emptyStyle = {

@@ -23,27 +23,32 @@ export const Task = ({ task: { id, title, state }, onArchiveTask, onPinTask }) =
     flexGrow: 1,
     fontSize: '14px',
     lineHeight: '20px',
-    color: state === 'TASK_ARCHIVED' ? '#aaa' : '#333',
+    color: state === 'TASK_ARCHIVED' ? '#757575' : '#333',
     textDecoration: state === 'TASK_ARCHIVED' ? 'line-through' : 'none',
   };
 
   const pinStyle = {
     cursor: 'pointer',
-    color: state === 'TASK_PINNED' ? '#26c6da' : '#eee',
+    color: state === 'TASK_PINNED' ? '#0072ad' : '#bdbdbd',
     fontSize: '20px',
     marginLeft: '12px'
   };
 
   return (
     <div style={containerStyle}>
-      <label style={checkboxStyle}>
+      <label style={checkboxStyle} aria-label={`archiveTask-${id}`}>
         <input
           type="checkbox"
           defaultChecked={state === 'TASK_ARCHIVED'}
           disabled={true}
           name="checked"
         />
-        <span onClick={() => onArchiveTask(id)} />
+        <span 
+          onClick={() => onArchiveTask(id)} 
+          role="button"
+          aria-label="archive"
+          tabIndex={0}
+        />
       </label>
       <div style={titleStyle}>
         <input 
@@ -51,11 +56,18 @@ export const Task = ({ task: { id, title, state }, onArchiveTask, onPinTask }) =
           value={title} 
           readOnly={true} 
           placeholder="Input title" 
+          aria-label={title}
           style={{ border: 'none', background: 'transparent', width: '100%', outline: 'none' }}
         />
       </div>
-      <div onClick={() => onPinTask(id)} style={pinStyle}>
-        <span className="icon-star">★</span>
+      <div 
+        onClick={() => onPinTask(id)} 
+        style={pinStyle}
+        role="button"
+        aria-label={state === 'TASK_PINNED' ? 'unpin' : 'pin'}
+        tabIndex={0}
+      >
+        <span className="icon-star" aria-hidden="true">★</span>
       </div>
     </div>
   );

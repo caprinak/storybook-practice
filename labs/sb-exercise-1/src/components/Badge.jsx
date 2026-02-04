@@ -4,9 +4,16 @@ import PropTypes from 'prop-types';
 /**
  * A simple Badge component for status markers.
  */
-export const Badge = ({ label, color = 'gray', size = 'medium' }) => {
+export const Badge = ({ label, status = 'default', size = 'medium' }) => {
+  const statusColors = {
+    success: '#1b5e20', // Dark Green
+    error: '#c62828',   // Dark Red
+    default: '#424242', // Dark Gray
+    warning: '#af3d01', // Dark Orange
+  };
+
   const style = {
-    backgroundColor: color,
+    backgroundColor: statusColors[status] || statusColors.default,
     padding: size === 'large' ? '8px 16px' : '4px 8px',
     borderRadius: '12px',
     color: 'white',
@@ -18,14 +25,14 @@ export const Badge = ({ label, color = 'gray', size = 'medium' }) => {
     textAlign: 'center',
     boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
   };
-  return <span style={style}>{label}</span>;
+  return <span style={style} role="status" aria-label={label}>{label}</span>;
 };
 
 Badge.propTypes = {
   /** The text to display inside the badge */
   label: PropTypes.string.isRequired,
-  /** The background color of the badge */
-  color: PropTypes.string,
+  /** The status level of the badge */
+  status: PropTypes.oneOf(['default', 'success', 'error', 'warning']),
   /** How large should the badge be? */
   size: PropTypes.oneOf(['small', 'medium', 'large']),
 };

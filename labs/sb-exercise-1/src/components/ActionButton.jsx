@@ -23,9 +23,9 @@ export const ActionButton = ({
   };
 
   const variants = {
-    primary: { backgroundColor: '#007bff', color: 'white' },
+    primary: { backgroundColor: '#0056b3', color: 'white' },
     secondary: { backgroundColor: '#6c757d', color: 'white' },
-    outline: { backgroundColor: 'transparent', color: '#007bff', border: '1px solid #007bff' }
+    outline: { backgroundColor: 'transparent', color: '#0056b3', border: '1px solid #0056b3' }
   };
 
   const style = { ...baseStyle, ...variants[variant] };
